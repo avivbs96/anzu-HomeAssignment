@@ -14,9 +14,6 @@ class FileManager:
 
     def process_files(self):
         while True:
-            print(f"Checking directory: {self.input}") 
-            filenames = os.listdir(self.input)
-            print(f"Files found: {filenames}")
             for filename in os.listdir(self.input):
                 filepath = os.path.join(self.input, filename)
                 if os.path.isfile(filepath):
@@ -60,7 +57,7 @@ class FileManager:
                 f.write(','.join(map(str, all_lines)))
             print(f"{filepath} -- sorted integer packet added to: {output_file}")
         else:
-            print(f"No valid integers found in {filepath}")
+            raise ValueError(f"No lowercase letters found in {filepath}")
 
     def find_longest_substrings(self, s):
         max_len = 0
